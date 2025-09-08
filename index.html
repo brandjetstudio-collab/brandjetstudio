@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BrandJet Studio — Content & Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f1a;
+      --ink: #f0f4ff;
+      --muted: #a0aec0;
+      --accent: #8b5cf6;
+      --card: #161c2f;
+      --chip: #202a48;
+      --ok: #10b981;
+      --warn: #f59e0b;
+      --err: #ef4444;
+    }
+    * {
+      box-sizing: border-box;
+      transition: all 0.2s ease;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: linear-gradient(to bottom, #090d1a 0%, #0b0f1a 60%, #0b0f1a);
+      color: var(--ink);
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    .nav {
+      position: sticky;
+      top: 0;
+      background: rgba(9, 13, 26, 0.85);
+      backdrop-filter: blur(12px);
+      z-index: 50;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .badge {
+      background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 12px;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .cta {
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+      padding: 12px 18px;
+      border-radius: 10px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    .btn-ghost {
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 10px 14px;
+      border-radius: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 60px 0;
+      align-items: center;
+    }
+    .h1 {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .lead {
+      font-size: 18px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .chip {
+      background: var(--chip);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .hero-card {
+      background: var(--card);
+      padding: 24px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.05);
+      display: grid;
+      gap: 12px;
+    }
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand"><span class="badge">BrandJet</span> Studio — Content & Design</div>
+      <nav class="row">
+        <a class="btn-ghost" href="#services">Services</a>
+        <a class="btn-ghost" href="#portfolio">Portfolio</a>
+        <a class="btn-ghost" href="#pricing">Pricing</a>
+        <a class="cta" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1 class="h1">Smart visuals that <span style="color:var(--accent)">stand out & sell</span>.</h1>
+        <p class="lead">Reels, social graphics, landing pages – fast, branded content for small businesses in the UK and beyond. AI speed meets real human design sense.</p>
+        <div class="row" style="margin:18px 0">
+          <span class="chip">24–48h Delivery</span>
+          <span class="chip">Bilingual 🇬🇧/🇵🇱</span>
+          <span class="chip">Clear pricing</span>
+        </div>
+        <div class="row" style="margin:18px 0">
+          <a class="cta" href="#pricing">View Packages</a>
+          <a class="btn-ghost" href="#portfolio">See Work ↓</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="row">
+          <span class="chip">Reels</span>
+          <span class="chip">Canva Packs</span>
+          <span class="chip">Landing Pages</span>
+          <span class="chip">Copy & Prompts</span>
+        </div>
+        <div style="margin-top:12px; font-size:14px; color:var(--muted);">Over 120+ content pieces created for gyms, barbers, cafés and coaches.</div>
+      </div>
+    </section>
+<section id="portfolio" class="section">
+  <h2 style="font-size:26px; margin-bottom:10px;">Portfolio</h2>
+  <p class="lead">Selected visuals created in Canva. Final designs are fully branded and delivered as ready-to-use files.</p>
+
+  <div class="gallery" style="margin-top:20px; display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:18px;">
+
+    <!-- MOCKUP 1 -->
+    <div class="shot">
+      <a href="https://www.canva.com/design?create=true&template=EAFAk2vDNMs" target="_blank">
+        <img src="https://template.canva.com/EAFAk2vDNMs/1/0/400w-abaDwjGuzV8.jpg" alt="Reel: Strength Week Recap – FlexX Gym" style="width:100%; border-radius:14px;">
+        <p style="font-size:13px; margin-top:6px; color:#aab2d5;">Reel: Strength Week Recap – FlexX Gym</p>
+      </a>
+    </div>
+
+    <!-- MOCKUP 2 -->
+    <div class="shot">
+      <a href="https://www.canva.com/design?create=true&template=EAFyw1hW6UU" target="_blank">
+        <img src="https://template.canva.com/EAFyw1hW6UU/1/0/400w-yfNdKZIQ1Fc.jpg" alt="Poster: Loyalty Promo – Razor Room" style="width:100%; border-radius:14px;">
+        <p style="font-size:13px; margin-top:6px; color:#aab2d5;">Poster: Loyalty Promo – Razor Room</p>
+      </a>
+    </div>
+
+    <!-- MOCKUP 3 -->
+    <div class="shot">
+      <a href="https://www.canva.com/design?create=true&template=EAFF_pyCcMs" target="_blank">
+        <img src="https://template.canva.com/EAFF_pyCcMs/4/0/400w-Zp67dOnjUcI.jpg" alt="Menu: Autumn Specials – Brew & Bean" style="width:100%; border-radius:14px;">
+        <p style="font-size:13px; margin-top:6px; color:#aab2d5;">Menu: Autumn Specials – Brew & Bean</p>
+      </a>
+    </div>
+
+    <!-- MOCKUP 4 -->
+    <div class="shot">
+      <a href="https://www.canva.com/design?create=true&template=EAGQbDTRtlA" target="_blank">
+        <img src="https://template.canva.com/EAGQbDTRtlA/3/0/400w-or7bU25pqmY.jpg" alt="Ad: Hoodie Drop – HypeWear" style="width:100%; border-radius:14px;">
+        <p style="font-size:13px; margin-top:6px; color:#aab2d5;">Ad: Hoodie Drop – HypeWear</p>
+      </a>
+    </div>
+
+    <!-- MOCKUP 5 -->
+    <div class="shot">
+      <a href="https://www.canva.com/design?create=true&template=EAGfiuI3fxc" target="_blank">
+        <img src="https://template.canva.com/EAGfiuI3fxc/1/0/320w-Xb0gGBKtDZw.jpg" alt="Reel: GrillPoint Kebab Promo" style="width:100%; border-radius:14px;">
+        <p style="font-size:13px; margin-top:6px; color:#aab2d5;">Reel: GrillPoint Kebab Promo</p>
+      </a>
+    </div>
+
+    <!-- MOCKUP 6 -->
+    <div class="shot">
+      <a href="https://design.canva.ai/2p96z8nh" target="_blank">
+        <img src="https://design.canva.ai/2p8debzv" alt="Landing Page: Booking – Hair by Lena" style="width:100%; border-radius:14px;">
+        <p style="font-size:13px; margin-top:6px; color:#aab2d5;">Landing Page: Booking – Hair by Lena</p>
+      </a>
+    </div>
+
+  </div>
+
+  <p style="margin-top:20px; font-size:13px; color:#7881a7;">*These are example previews. Final graphics are fully customized and delivered as .png, .mp4 or landing pages – ready to use.</p>
+</section>
+<section id="services" class="section" style="padding:50px 0;">
+  <h2 style="font-size:26px; margin-bottom:10px;">Services</h2>
+  <p class="lead">Smart content packages tailored to your business needs. All visual work is editable or delivered ready-to-publish.</p>
+  <div class="grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:18px; margin-top:20px;">
+    
+    <div class="card">
+      <h3>Reels / TikTok</h3>
+      <p>20–30s short-form videos with captions, music, and branded hooks. Based on your clips or stock footage.</p>
+    </div>
+    
+    <div class="card">
+      <h3>Canva Post Packs</h3>
+      <p>10/20 branded posts as .png + editable templates. Fonts, colors, layout matched to your style.</p>
+    </div>
+
+    <div class="card">
+      <h3>Landing Pages</h3>
+      <p>1-page offers or booking sites with forms + basic analytics. Fast, mobile-first and clear.</p>
+    </div>
+
+    <div class="card">
+      <h3>Copywriting & Prompts</h3>
+      <p>Captions, ad texts, bios, and AI prompt packs for Reels or ChatGPT-based workflows.</p>
+    </div>
+
+    <div class="card">
+      <h3>Mini Brand Kit</h3>
+      <p>Color palette, typography, and 3 post layout examples – useful for building your brand identity.</p>
+    </div>
+
+    <div class="card">
+      <h3>Photo/Video Edits</h3>
+      <p>Basic touch-up, subtitle overlays, sound cleanup, and social-ready crop edits.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="pricing" class="section" style="padding:50px 0;">
+  <h2 style="font-size:26px; margin-bottom:10px;">Pricing – Simple & Transparent</h2>
+  <p class="lead">No subscription traps. Fixed packages. WhatsApp for quick quotes.</p>
+  <div class="grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; margin-top:20px;">
+
+    <div class="card">
+      <h3>Starter</h3>
+      <div class="price"><span class="num">£99</span> <span class="muted">/ one-time</span></div>
+      <ul class="list" style="color:var(--muted); padding-left:20px; margin-top:10px;">
+        <li>10 Canva posts (.png)</li>
+        <li>1 Reel (≤30s)</li>
+        <li>1 round of feedback</li>
+      </ul>
+    </div>
+
+    <div class="card" style="outline: 2px solid var(--accent);">
+      <h3>Growth</h3>
+      <div class="price"><span class="num">£199</span> <span class="muted">/ monthly</span></div>
+      <ul class="list" style="color:var(--muted); padding-left:20px; margin-top:10px;">
+        <li>20 posts</li>
+        <li>4 Reels</li>
+        <li>Mini brand sheet</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Launch</h3>
+      <div class="price"><span class="num">£349</span> <span class="muted">/ monthly</span></div>
+      <ul class="list" style="color:var(--muted); padding-left:20px; margin-top:10px;">
+        <li>30 posts</li>
+        <li>8 Reels</li>
+        <li>1 Landing Page</li>
+      </ul>
+    </div>
+
+  </div>
+  <p class="muted" style="margin-top:12px;">Invoices available. Monthly terms with 7-day cancellation. Custom quotes via WhatsApp.</p>
+</section>
+
+<section id="contact" class="section" style="padding:50px 0;">
+  <h2 style="font-size:26px; margin-bottom:10px;">Contact</h2>
+  <div class="row" style="margin:10px 0 16px">
+    <span class="pill">Email: <a href="mailto:brandjetstudio@gmail.com" style="margin-left:6px">brandjetstudio@gmail.com</a></span>
+    <span class="pill">WhatsApp: <a href="https://wa.me/447000000000" target="_blank" style="margin-left:6px">+44 7000 000000</a></span>
+    <span class="pill">Instagram: <a href="https://instagram.com/your.handle" target="_blank" style="margin-left:6px">@your.handle</a></span>
+  </div>
+
+  <div class="card">
+    <h3>Quick Message</h3>
+    <form onsubmit="event.preventDefault(); alert('Thanks! I’ll get back to you shortly.')">
+      <div class="grid cols-2" style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <input required placeholder="Your Name" style="padding:12px; border-radius:10px; border:1px solid #263368; background:#0f1635; color:var(--ink)">
+        <input required type="email" placeholder="Your Email" style="padding:12px; border-radius:10px; border:1px solid #263368; background:#0f1635; color:var(--ink)">
+      </div>
+      <textarea required placeholder="Tell me a bit about your project…" style="margin-top:10px; padding:12px; border-radius:10px; border:1px solid #263368; background:#0f1635; color:var(--ink); width:100%; min-height:120px"></textarea>
+      <div class="row" style="margin-top:10px">
+        <button class="cta" type="submit">Send</button>
+        <a class="btn-ghost" href="https://cal.com/" target="_blank">Book a Call</a>
+      </div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="container footer" style="text-align:center; padding:40px 0; font-size:14px; color:#99a1c7;">
+  © <span id="y"></span> BrandJet Studio • Content & Design • London, UK
+</footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear()
+</script>
+</body>
+</html>
