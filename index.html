@@ -1,35 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BrandJet Studio — Content & Design</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --accent: #8b5cf6;
-      --ink: #1a1a1a;
+      --bg: #0b0d17;
+      --card: #151827;
+      --ink: #eaeaf3;
+      --muted: #9ca3af;
     }
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin:0; padding:0; }
     body {
-      margin:0; padding:0;
       font-family:'Inter', sans-serif;
-      background: linear-gradient(135deg, #fafafa 0%, #f3f0ff 40%, #e9e4ff 100%);
+      background: var(--bg);
       color: var(--ink);
+      line-height:1.5;
+      position:relative;
+      overflow-x:hidden;
     }
-    .container { max-width: 1100px; margin:0 auto; padding:24px; }
-    .nav { position:sticky; top:0; background:#fff; border-bottom:1px solid #eee; z-index:50; }
+    /* 🌿 Background vines (SVG pattern) */
+    body::before {
+      content:"";
+      position:fixed;
+      top:0; left:0; right:0; bottom:0;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' fill='none' stroke='white' stroke-width='1'><path d='M100 0 C110 30, 90 60, 100 100 C110 140, 90 170, 100 200' stroke-opacity='0.15'/><circle cx='95' cy='40' r='3' fill='white' fill-opacity='0.2'/><circle cx='105' cy='80' r='2' fill='white' fill-opacity='0.2'/><circle cx='95' cy='140' r='3' fill='white' fill-opacity='0.2'/><circle cx='105' cy='180' r='2' fill='white' fill-opacity='0.2'/></svg>");
+      background-repeat: repeat;
+      opacity:0.4;
+      z-index:0;
+    }
+    .container { max-width:1100px; margin:0 auto; padding:24px; position:relative; z-index:1; }
+    header.nav {
+      position:sticky; top:0;
+      background:rgba(15,15,25,0.8);
+      backdrop-filter: blur(8px);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      z-index:100;
+    }
     .nav-inner { display:flex; justify-content:space-between; align-items:center; }
     .brand { font-weight:800; font-size:20px; color:var(--accent); }
-    .row { display:flex; gap:10px; flex-wrap:wrap; }
-    .cta { background:var(--accent); color:#fff; padding:10px 16px; border-radius:8px; text-decoration:none; }
-    .btn-ghost { border:1px solid #ccc; padding:8px 14px; border-radius:8px; text-decoration:none; color:#555; }
-    .section { background:rgba(255,255,255,0.9); border-radius:18px; padding:40px; margin:40px 0; box-shadow:0 8px 24px rgba(139,92,246,0.1); }
-    .card { background:#fff; border:1px solid #eee; border-radius:12px; padding:20px; }
-    .price { font-size:28px; font-weight:800; color:var(--accent); }
-    footer { text-align:center; padding:30px; font-size:14px; color:#666; }
-    input, textarea { width:100%; padding:12px; border-radius:10px; border:1px solid #ccc; font-size:14px; margin-top:8px; }
-    button { background:var(--accent); color:#fff; border:none; padding:12px 18px; border-radius:10px; cursor:pointer; }
+    nav.row { display:flex; gap:12px; }
+    .cta, .btn-ghost {
+      padding:10px 16px; border-radius:8px; text-decoration:none; font-weight:600;
+    }
+    .cta { background:var(--accent); color:#fff; }
+    .btn-ghost { border:1px solid rgba(255,255,255,0.2); color:var(--ink); }
+    .section { background:var(--card); border-radius:18px; padding:40px; margin:40px 0; box-shadow:0 8px 24px rgba(0,0,0,0.5); }
+    .card { background:#1d2033; border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:20px; }
+    .price { font-size:28px; font-weight:800; color:var(--accent); margin:10px 0; }
+    ul { list-style:none; padding:0; margin:0; }
+    ul li { margin-bottom:6px; color:var(--muted); }
+    input, textarea {
+      width:100%; padding:12px;
+      border-radius:10px; border:1px solid #333;
+      background:#0f1325; color:var(--ink);
+      font-size:14px; margin-top:8px;
+    }
+    button { background:var(--accent); color:#fff; border:none; padding:12px 18px; border-radius:10px; cursor:pointer; margin-top:12px; }
+    footer { text-align:center; padding:30px; font-size:14px; color:var(--muted); }
   </style>
 </head>
 <body>
@@ -103,6 +134,7 @@
       <form name="client-brief" method="POST" data-netlify="true">
         <input type="hidden" name="form-name" value="client-brief">
         <input name="name" placeholder="Your Name" required>
+        <input type="hidden" name="redirect" value="/thank-you.html">
         <input type="email" name="email" placeholder="Your Email" required>
         <textarea name="goal" placeholder="1. What is the goal? (Promo, holiday…)" required></textarea>
         <textarea name="platform" placeholder="2. Where will it be used?"></textarea>
@@ -110,7 +142,7 @@
         <textarea name="url" placeholder="4. Website or booking link"></textarea>
         <textarea name="logo" placeholder="5. Add logo? (Yes/No)"></textarea>
         <textarea name="photos" placeholder="6. Do you have photos? Or use stock?"></textarea>
-        <textarea name="style" placeholder="7. Preferred style?"></textarea>
+        <textarea name="style" placeholder="7. Preferred style"></textarea>
         <textarea name="canva" placeholder="8. Do you want Canva edit access?"></textarea>
         <button type="submit">Send Brief</button>
       </form>
@@ -140,5 +172,128 @@
 
   <footer>© <span id="y"></span> BrandJet Studio • London, UK</footer>
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Starter Package — BrandJet Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body { margin:0; font-family:'Inter', sans-serif;
+      background: linear-gradient(135deg, #0b0d17, #1a1a2e, #2a1a3f); color:#eaeaf3; position:relative; }
+    body::before {
+      content:""; position:fixed; inset:0;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' fill='none' stroke='white' stroke-width='1'><path d='M100 0 C110 30, 90 60, 100 100 C110 140, 90 170, 100 200' stroke-opacity='0.15'/><circle cx='95' cy='40' r='3' fill='white' fill-opacity='0.2'/><circle cx='105' cy='80' r='2' fill='white' fill-opacity='0.2'/><circle cx='95' cy='140' r='3' fill='white' fill-opacity='0.2'/><circle cx='105' cy='180' r='2' fill='white' fill-opacity='0.2'/></svg>");
+      background-repeat: repeat; opacity:0.2; z-index:0;
+    }
+    .container { max-width:700px; margin:50px auto; background:#151827; padding:40px; border-radius:18px; box-shadow:0 10px 30px rgba(0,0,0,0.5); position:relative; z-index:1; }
+    h1 { color:#8b5cf6; }
+    input, textarea { width:100%; padding:12px; border-radius:10px; border:1px solid #333; background:#0f1325; color:#eaeaf3; margin-top:10px; }
+    button { background:#8b5cf6; color:#fff; border:none; padding:12px 18px; border-radius:10px; margin-top:14px; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Order: Starter Package (£99 one-time)</h1>
+    <p>Please complete this quick brief:</p>
+    <form name="order-starter" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="order-starter">
+      <input type="hidden" name="package" value="Starter Package (£99 one-time)">
+      <input name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="goal" placeholder="What’s the goal?" required></textarea>
+      <textarea name="message" placeholder="Main message"></textarea>
+      <input name="url" placeholder="Booking link (URL)">
+      <input name="logo" placeholder="Add logo?">
+      <input type="hidden" name="redirect" value="/thank-you.html">
+      <textarea name="style" placeholder="Preferred style"></textarea>
+      <button type="submit">Send Order</button>
+    </form>
+  </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Growth Package — BrandJet Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body { margin:0; font-family:'Inter', sans-serif;
+      background: linear-gradient(135deg, #0b0d17, #1a1a2e, #2a1a3f); color:#eaeaf3; position:relative; }
+    body::before {
+      content:""; position:fixed; inset:0;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' fill='none' stroke='white' stroke-width='1'><path d='M100 0 C110 30, 90 60, 100 100 C110 140, 90 170, 100 200' stroke-opacity='0.15'/><circle cx='95' cy='40' r='3' fill='white' fill-opacity='0.2'/><circle cx='105' cy='80' r='2' fill='white' fill-opacity='0.2'/><circle cx='95' cy='140' r='3' fill='white' fill-opacity='0.2'/><circle cx='105' cy='180' r='2' fill='white' fill-opacity='0.2'/></svg>");
+      background-repeat: repeat; opacity:0.2; z-index:0;
+    }
+    .container { max-width:700px; margin:50px auto; background:#151827; padding:40px; border-radius:18px; box-shadow:0 10px 30px rgba(0,0,0,0.5); position:relative; z-index:1; }
+    h1 { color:#8b5cf6; }
+    input, textarea { width:100%; padding:12px; border-radius:10px; border:1px solid #333; background:#0f1325; color:#eaeaf3; margin-top:10px; }
+    button { background:#8b5cf6; color:#fff; border:none; padding:12px 18px; border-radius:10px; margin-top:14px; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Order: Growth Package (£199/month)</h1>
+    <p>Please complete this quick brief:</p>
+    <form name="order-growth" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="order-growth">
+      <input type="hidden" name="package" value="Growth Package (£199/month)">
+      <input name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="goal" placeholder="What’s the goal?" required></textarea>
+      <textarea name="message" placeholder="Main message"></textarea>
+      <input name="url" placeholder="Booking link (URL)">
+      <input name="logo" placeholder="Add logo?">
+      <input type="hidden" name="redirect" value="/thank-you.html">
+      <textarea name="style" placeholder="Preferred style"></textarea>
+      <button type="submit">Send Order</button>
+    </form>
+  </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Pro Launch Package — BrandJet Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body { margin:0; font-family:'Inter', sans-serif;
+      background: linear-gradient(135deg, #0b0d17, #1a1a2e, #2a1a3f); color:#eaeaf3; position:relative; }
+    body::before {
+      content:""; position:fixed; inset:0;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' fill='none' stroke='white' stroke-width='1'><path d='M100 0 C110 30, 90 60, 100 100 C110 140, 90 170, 100 200' stroke-opacity='0.15'/><circle cx='95' cy='40' r='3' fill='white' fill-opacity='0.2'/><circle cx='105' cy='80' r='2' fill='white' fill-opacity='0.2'/><circle cx='95' cy='140' r='3' fill='white' fill-opacity='0.2'/><circle cx='105' cy='180' r='2' fill='white' fill-opacity='0.2'/></svg>");
+      background-repeat: repeat; opacity:0.2; z-index:0;
+    }
+    .container { max-width:700px; margin:50px auto; background:#151827; padding:40px; border-radius:18px; box-shadow:0 10px 30px rgba(0,0,0,0.5); position:relative; z-index:1; }
+    h1 { color:#8b5cf6; }
+    input, textarea { width:100%; padding:12px; border-radius:10px; border:1px solid #333; background:#0f1325; color:#eaeaf3; margin-top:10px; }
+    button { background:#8b5cf6; color:#fff; border:none; padding:12px 18px; border-radius:10px; margin-top:14px; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Order: Pro Launch Package (£349/month)</h1>
+    <p>Please complete this quick brief:</p>
+    <form name="order-pro" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="order-pro">
+      <input type="hidden" name="package" value="Pro Launch Package (£349/month)">
+      <input name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="goal" placeholder="What’s the goal?" required></textarea>
+      <textarea name="message" placeholder="Main message"></textarea>
+      <input name="url" placeholder="Booking link (URL)">
+      <input name="logo" placeholder="Add logo?">
+      <input type="hidden" name="redirect" value="/thank-you.html">
+      <textarea name="style" placeholder="Preferred style"></textarea>
+      <button type="submit">Send Order</button>
+    </form>
+  </div>
 </body>
 </html>
