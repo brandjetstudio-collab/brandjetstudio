@@ -300,12 +300,46 @@
 </section>
 
 <section id="contact" class="section" style="padding:50px 0;">
-  <h2 style="font-size:26px; margin-bottom:10px;">Contact</h2>
-  <div class="row" style="margin:10px 0 16px">
-    <span class="pill">Email: <a href="mailto:brandjetstudio@gmail.com" style="margin-left:6px">brandjetstudio@gmail.com</a></span>
-    <span class="pill">WhatsApp: <a href="https://wa.me/447000000000" target="_blank" style="margin-left:6px">+44 7000 000000</a></span>
-    <span class="pill">Instagram: <a href="https://instagram.com/your.handle" target="_blank" style="margin-left:6px">@your.handle</a></span>
+  <h2 style="font-size:26px; margin-bottom:10px;">Start Your Project</h2>
+  <p class="lead">Fill out this quick brief so I can prepare the right design for you. The more detail, the better the result!</p>
+
+  <div class="card">
+    <!-- Netlify Forms integration -->
+    <form name="client-brief" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="client-brief" />
+
+      <!-- Name + Email -->
+      <div class="grid cols-2" style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <input required name="name" placeholder="Your Name" style="padding:12px; border-radius:10px; border:1px solid #263368; background:#0f1635; color:var(--ink)">
+        <input required type="email" name="email" placeholder="Your Email" style="padding:12px; border-radius:10px; border:1px solid #263368; background:#0f1635; color:var(--ink)">
+      </div>
+
+      <!-- Brief Questions -->
+      <textarea required name="goal" placeholder="1. What is the goal of the graphic? (Promo, holiday, new service…)" style="margin-top:12px; padding:12px; border-radius:10px; border:1px solid #263368; background:#0f1635; color:var(--ink); width:100%; min-height:70px"></textarea>
+
+      <textarea name="platform" placeholder="2. Where will it be used? (IG, FB, website, print…)" style="margin-top:12px; padding:12px; border-radius:10px; border:1px solid #263368; background:#0f1635; color:var(--ink); width:100%; min-height:70px"></textarea>
+
+      <textarea name="message" placeholder="3. Main headline or message?" style="margin-top:12px; padding:12px; border-radius:10px; border:1px solid #263368; background:#0f1635; color:var(--ink); width:100%; min-height:70px"></textarea>
+
+      <textarea name="url" placeholder="4. Website or booking link (e.g. barberteam.com)" style="margin-top:12px; padding:12px; border-radius:10px; border:1px solid #263368; background:#0f1635; color:var(--ink); width:100%; min-height:70px"></textarea>
+
+      <textarea name="logo" placeholder="5. Do you want to add your logo? (Yes/No)" style="margin-top:12px; padding:12px; border-radius:10px; border:1px solid #263368; background:#0f1635; color:var(--ink); width:100%; min-height:70px"></textarea>
+
+      <textarea name="photos" placeholder="6. Do you have photos to include or should I use stock?" style="margin-top:12px; padding:12px; border-radius:10px; border:1px solid #263368; background:#0f1635; color:var(--ink); width:100%; min-height:70px"></textarea>
+
+      <textarea name="style" placeholder="7. Preferred style? (modern, minimal, bold…)" style="margin-top:12px; padding:12px; border-radius:10px; border:1px solid #263368; background:#0f1635; color:var(--ink); width:100%; min-height:70px"></textarea>
+
+      <textarea name="canva" placeholder="8. Do you want Canva edit access? (Yes/No)" style="margin-top:12px; padding:12px; border-radius:10px; border:1px solid #263368; background:#0f1635; color:var(--ink); width:100%; min-height:70px"></textarea>
+
+      <!-- Submit -->
+      <div class="row" style="margin-top:16px">
+        <button class="cta" type="submit">Send Brief</button>
+        <a class="btn-ghost" href="mailto:brandjetstudio@gmail.com">Or email me directly</a>
+      </div>
+    </form>
   </div>
+</section>
+
 
   <div class="card">
     <h3>Quick Message</h3>
