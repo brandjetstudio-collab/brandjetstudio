@@ -25,12 +25,9 @@
     /* 🌿 Background vines (SVG pattern) */
     body::before {
       content:"";
-      position:fixed;
-      top:0; left:0; right:0; bottom:0;
+      position:fixed; inset:0;
       background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' fill='none' stroke='white' stroke-width='1'><path d='M100 0 C110 30, 90 60, 100 100 C110 140, 90 170, 100 200' stroke-opacity='0.15'/><circle cx='95' cy='40' r='3' fill='white' fill-opacity='0.2'/><circle cx='105' cy='80' r='2' fill='white' fill-opacity='0.2'/><circle cx='95' cy='140' r='3' fill='white' fill-opacity='0.2'/><circle cx='105' cy='180' r='2' fill='white' fill-opacity='0.2'/></svg>");
-      background-repeat: repeat;
-      opacity:0.4;
-      z-index:0;
+      background-repeat: repeat; opacity:0.4; z-index:0;
     }
     .container { max-width:1100px; margin:0 auto; padding:24px; position:relative; z-index:1; }
     header.nav {
@@ -61,6 +58,8 @@
     }
     button { background:var(--accent); color:#fff; border:none; padding:12px 18px; border-radius:10px; cursor:pointer; margin-top:12px; }
     footer { text-align:center; padding:30px; font-size:14px; color:var(--muted); }
+    .socials { margin-top:20px; display:flex; justify-content:center; gap:20px; }
+    .socials a { color:var(--ink); text-decoration:none; font-size:20px; }
   </style>
 </head>
 <body>
@@ -70,13 +69,13 @@
       <nav class="row">
         <a class="btn-ghost" href="#services">Services</a>
         <a class="btn-ghost" href="#pricing">Pricing</a>
+        <a class="btn-ghost" href="#websites">Websites</a>
         <a class="btn-ghost" href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main class="container">
-
     <!-- Hero -->
     <section class="section">
       <h1>Smart visuals that <span style="color:var(--accent)">stand out & sell</span>.</h1>
@@ -99,7 +98,7 @@
 
     <!-- Pricing -->
     <section id="pricing" class="section">
-      <h2>Pricing</h2>
+      <h2>Content Packages</h2>
       <div class="row" style="gap:20px; flex-wrap:wrap;">
         <div class="card" style="flex:1 1 300px">
           <h3>Starter</h3>
@@ -128,13 +127,51 @@
       </div>
     </section>
 
+    <!-- Website Packages -->
+    <section id="websites" class="section">
+      <h2>Website Packages</h2>
+      <div class="row" style="gap:20px; flex-wrap:wrap;">
+        <div class="card" style="flex:1 1 300px">
+          <h3>Landing Page</h3>
+          <div class="price">£199</div>
+          <ul>
+            <li>1-page promo / booking site</li>
+            <li>CTA + contact form</li>
+            <li>Responsive design</li>
+            <li>Integration with WhatsApp / email</li>
+          </ul>
+          <a href="#contact" class="cta">Order Landing</a>
+        </div>
+        <div class="card" style="flex:1 1 300px">
+          <h3>Business Site</h3>
+          <div class="price">£499</div>
+          <ul>
+            <li>3–5 pages</li>
+            <li>Booking/contact form</li>
+            <li>Social media integration</li>
+            <li>Basic SEO setup</li>
+          </ul>
+          <a href="#contact" class="cta">Order Business</a>
+        </div>
+        <div class="card" style="flex:1 1 300px">
+          <h3>Premium Launch</h3>
+          <div class="price">£999+</div>
+          <ul>
+            <li>5+ pages (Portfolio, Blog, Shop)</li>
+            <li>Full landing + payments</li>
+            <li>SEO + speed optimization</li>
+            <li>Optional care plan (£50/mo)</li>
+          </ul>
+          <a href="#contact" class="cta">Order Premium</a>
+        </div>
+      </div>
+    </section>
     <!-- Client Brief Form -->
     <section id="contact" class="section">
       <h2>Client Brief</h2>
-      <form name="client-brief" method="POST" data-netlify="true">
+      <form name="client-brief" method="POST" data-netlify="true" action="/thank-you.html">
         <input type="hidden" name="form-name" value="client-brief">
         <input name="name" placeholder="Your Name" required>
-        <input type="hidden" name="redirect" value="/thank-you.html">
         <input type="email" name="email" placeholder="Your Email" required>
         <textarea name="goal" placeholder="1. What is the goal? (Promo, holiday…)" required></textarea>
         <textarea name="platform" placeholder="2. Where will it be used?"></textarea>
@@ -142,7 +179,7 @@
         <textarea name="url" placeholder="4. Website or booking link"></textarea>
         <textarea name="logo" placeholder="5. Add logo? (Yes/No)"></textarea>
         <textarea name="photos" placeholder="6. Do you have photos? Or use stock?"></textarea>
-        <textarea name="style" placeholder="7. Preferred style"></textarea>
+        <textarea name="style" placeholder="7. Preferred style?"></textarea>
         <textarea name="canva" placeholder="8. Do you want Canva edit access?"></textarea>
         <button type="submit">Send Brief</button>
       </form>
@@ -151,7 +188,7 @@
     <!-- Quick Message -->
     <section class="section">
       <h2>Quick Message</h2>
-      <form onsubmit="event.preventDefault(); alert('Thanks! I’ll get back to you.')">
+      <form onsubmit="event.preventDefault(); window.location='thank-you.html';">
         <input placeholder="Your Name" required>
         <input type="email" placeholder="Your Email" required>
         <textarea placeholder="Your message…" required></textarea>
@@ -170,8 +207,44 @@
 
   </main>
 
-  <footer>© <span id="y"></span> BrandJet Studio • London, UK</footer>
+  <footer>
+    © <span id="y"></span> BrandJet Studio • London, UK
+    <div class="socials">
+      <a href="mailto:brandjetstudio@gmail.com">📧</a>
+      <a href="https://wa.me/447000000000" target="_blank">💬</a>
+      <a href="https://instagram.com/brandjetstudio" target="_blank">📷</a>
+    </div>
+  </footer>
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You — BrandJet Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body { margin:0; font-family:'Inter', sans-serif;
+      background: linear-gradient(135deg,#0b0d17,#1a1a2e,#2a1a3f); color:#eaeaf3; display:flex; align-items:center; justify-content:center; height:100vh; text-align:center; position:relative; }
+    body::before {
+      content:""; position:fixed; inset:0;
+      background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' fill='none' stroke='white' stroke-width='1'><path d='M100 0 C110 30,90 60,100 100 C110 140,90 170,100 200' stroke-opacity='0.15'/><circle cx='95' cy='40' r='3' fill='white' fill-opacity='0.2'/><circle cx='105' cy='80' r='2' fill='white' fill-opacity='0.2'/><circle cx='95' cy='140' r='3' fill='white' fill-opacity='0.2'/><circle cx='105' cy='180' r='2' fill='white' fill-opacity='0.2'/></svg>");
+      background-repeat:repeat; opacity:0.25; z-index:0;
+    }
+    .box { background:#151827; padding:40px; border-radius:18px; box-shadow:0 10px 30px rgba(0,0,0,0.6); position:relative; z-index:1; max-width:500px; }
+    h1 { color:#8b5cf6; margin-bottom:16px; }
+    p { color:#ccc; margin-bottom:20px; }
+    a { background:#8b5cf6; color:#fff; padding:12px 20px; border-radius:10px; text-decoration:none; font-weight:600; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Thank You! 🎉</h1>
+    <p>Your form was sent successfully.<br>I’ll reply within 24–48h.</p>
+    <a href="index.html">← Back to Home</a>
+  </div>
 </body>
 </html>
 <!DOCTYPE html>
@@ -183,32 +256,31 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     body { margin:0; font-family:'Inter', sans-serif;
-      background: linear-gradient(135deg, #0b0d17, #1a1a2e, #2a1a3f); color:#eaeaf3; position:relative; }
+      background: linear-gradient(135deg,#0b0d17,#1a1a2e,#2a1a3f); color:#eaeaf3; position:relative; }
     body::before {
       content:""; position:fixed; inset:0;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' fill='none' stroke='white' stroke-width='1'><path d='M100 0 C110 30, 90 60, 100 100 C110 140, 90 170, 100 200' stroke-opacity='0.15'/><circle cx='95' cy='40' r='3' fill='white' fill-opacity='0.2'/><circle cx='105' cy='80' r='2' fill='white' fill-opacity='0.2'/><circle cx='95' cy='140' r='3' fill='white' fill-opacity='0.2'/><circle cx='105' cy='180' r='2' fill='white' fill-opacity='0.2'/></svg>");
-      background-repeat: repeat; opacity:0.2; z-index:0;
+      background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' fill='none' stroke='white' stroke-width='1'><path d='M100 0 C110 30,90 60,100 100 C110 140,90 170,100 200' stroke-opacity='0.15'/><circle cx='95' cy='40' r='3' fill='white' fill-opacity='0.2'/><circle cx='105' cy='80' r='2' fill='white' fill-opacity='0.2'/><circle cx='95' cy='140' r='3' fill='white' fill-opacity='0.2'/><circle cx='105' cy='180' r='2' fill='white' fill-opacity='0.2'/></svg>");
+      background-repeat:repeat; opacity:0.2; z-index:0;
     }
     .container { max-width:700px; margin:50px auto; background:#151827; padding:40px; border-radius:18px; box-shadow:0 10px 30px rgba(0,0,0,0.5); position:relative; z-index:1; }
     h1 { color:#8b5cf6; }
-    input, textarea { width:100%; padding:12px; border-radius:10px; border:1px solid #333; background:#0f1325; color:#eaeaf3; margin-top:10px; }
-    button { background:#8b5cf6; color:#fff; border:none; padding:12px 18px; border-radius:10px; margin-top:14px; cursor:pointer; }
+    input,textarea { width:100%; padding:12px; border-radius:10px; border:1px solid #333; background:#0f1325; color:#eaeaf3; margin-top:10px; }
+    button { background:#8b5cf6; color:#fff; padding:12px 18px; border:none; border-radius:10px; margin-top:14px; cursor:pointer; }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Order: Starter Package (£99 one-time)</h1>
-    <p>Please complete this quick brief:</p>
-    <form name="order-starter" method="POST" data-netlify="true">
+    <p>Please complete this brief:</p>
+    <form name="order-starter" method="POST" data-netlify="true" action="/thank-you.html">
       <input type="hidden" name="form-name" value="order-starter">
       <input type="hidden" name="package" value="Starter Package (£99 one-time)">
       <input name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="goal" placeholder="What’s the goal?" required></textarea>
+      <textarea name="goal" placeholder="Project goal" required></textarea>
       <textarea name="message" placeholder="Main message"></textarea>
       <input name="url" placeholder="Booking link (URL)">
       <input name="logo" placeholder="Add logo?">
-      <input type="hidden" name="redirect" value="/thank-you.html">
       <textarea name="style" placeholder="Preferred style"></textarea>
       <button type="submit">Send Order</button>
     </form>
@@ -224,32 +296,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     body { margin:0; font-family:'Inter', sans-serif;
-      background: linear-gradient(135deg, #0b0d17, #1a1a2e, #2a1a3f); color:#eaeaf3; position:relative; }
-    body::before {
-      content:""; position:fixed; inset:0;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' fill='none' stroke='white' stroke-width='1'><path d='M100 0 C110 30, 90 60, 100 100 C110 140, 90 170, 100 200' stroke-opacity='0.15'/><circle cx='95' cy='40' r='3' fill='white' fill-opacity='0.2'/><circle cx='105' cy='80' r='2' fill='white' fill-opacity='0.2'/><circle cx='95' cy='140' r='3' fill='white' fill-opacity='0.2'/><circle cx='105' cy='180' r='2' fill='white' fill-opacity='0.2'/></svg>");
-      background-repeat: repeat; opacity:0.2; z-index:0;
-    }
+      background: linear-gradient(135deg,#0b0d17,#1a1a2e,#2a1a3f); color:#eaeaf3; position:relative; }
+    body::before { content:""; position:fixed; inset:0;
+      background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' fill='none' stroke='white' stroke-width='1'><path d='M100 0 C110 30,90 60,100 100 C110 140,90 170,100 200' stroke-opacity='0.15'/><circle cx='95' cy='40' r='3' fill='white' fill-opacity='0.2'/><circle cx='105' cy='80' r='2' fill='white' fill-opacity='0.2'/><circle cx='95' cy='140' r='3' fill='white' fill-opacity='0.2'/><circle cx='105' cy='180' r='2' fill='white' fill-opacity='0.2'/></svg>");
+      background-repeat:repeat; opacity:0.2; z-index:0; }
     .container { max-width:700px; margin:50px auto; background:#151827; padding:40px; border-radius:18px; box-shadow:0 10px 30px rgba(0,0,0,0.5); position:relative; z-index:1; }
     h1 { color:#8b5cf6; }
-    input, textarea { width:100%; padding:12px; border-radius:10px; border:1px solid #333; background:#0f1325; color:#eaeaf3; margin-top:10px; }
-    button { background:#8b5cf6; color:#fff; border:none; padding:12px 18px; border-radius:10px; margin-top:14px; cursor:pointer; }
+    input,textarea { width:100%; padding:12px; border-radius:10px; border:1px solid #333; background:#0f1325; color:#eaeaf3; margin-top:10px; }
+    button { background:#8b5cf6; color:#fff; padding:12px 18px; border:none; border-radius:10px; margin-top:14px; cursor:pointer; }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Order: Growth Package (£199/month)</h1>
-    <p>Please complete this quick brief:</p>
-    <form name="order-growth" method="POST" data-netlify="true">
+    <p>Please complete this brief:</p>
+    <form name="order-growth" method="POST" data-netlify="true" action="/thank-you.html">
       <input type="hidden" name="form-name" value="order-growth">
       <input type="hidden" name="package" value="Growth Package (£199/month)">
       <input name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="goal" placeholder="What’s the goal?" required></textarea>
+      <textarea name="goal" placeholder="Project goal" required></textarea>
       <textarea name="message" placeholder="Main message"></textarea>
       <input name="url" placeholder="Booking link (URL)">
       <input name="logo" placeholder="Add logo?">
-      <input type="hidden" name="redirect" value="/thank-you.html">
       <textarea name="style" placeholder="Preferred style"></textarea>
       <button type="submit">Send Order</button>
     </form>
@@ -265,32 +334,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     body { margin:0; font-family:'Inter', sans-serif;
-      background: linear-gradient(135deg, #0b0d17, #1a1a2e, #2a1a3f); color:#eaeaf3; position:relative; }
-    body::before {
-      content:""; position:fixed; inset:0;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' fill='none' stroke='white' stroke-width='1'><path d='M100 0 C110 30, 90 60, 100 100 C110 140, 90 170, 100 200' stroke-opacity='0.15'/><circle cx='95' cy='40' r='3' fill='white' fill-opacity='0.2'/><circle cx='105' cy='80' r='2' fill='white' fill-opacity='0.2'/><circle cx='95' cy='140' r='3' fill='white' fill-opacity='0.2'/><circle cx='105' cy='180' r='2' fill='white' fill-opacity='0.2'/></svg>");
-      background-repeat: repeat; opacity:0.2; z-index:0;
-    }
+      background: linear-gradient(135deg,#0b0d17,#1a1a2e,#2a1a3f); color:#eaeaf3; position:relative; }
+    body::before { content:""; position:fixed; inset:0;
+      background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' fill='none' stroke='white' stroke-width='1'><path d='M100 0 C110 30,90 60,100 100 C110 140,90 170,100 200' stroke-opacity='0.15'/><circle cx='95' cy='40' r='3' fill='white' fill-opacity='0.2'/><circle cx='105' cy='80' r='2' fill='white' fill-opacity='0.2'/><circle cx='95' cy='140' r='3' fill='white' fill-opacity='0.2'/><circle cx='105' cy='180' r='2' fill='white' fill-opacity='0.2'/></svg>");
+      background-repeat:repeat; opacity:0.2; z-index:0; }
     .container { max-width:700px; margin:50px auto; background:#151827; padding:40px; border-radius:18px; box-shadow:0 10px 30px rgba(0,0,0,0.5); position:relative; z-index:1; }
     h1 { color:#8b5cf6; }
-    input, textarea { width:100%; padding:12px; border-radius:10px; border:1px solid #333; background:#0f1325; color:#eaeaf3; margin-top:10px; }
-    button { background:#8b5cf6; color:#fff; border:none; padding:12px 18px; border-radius:10px; margin-top:14px; cursor:pointer; }
+    input,textarea { width:100%; padding:12px; border-radius:10px; border:1px solid #333; background:#0f1325; color:#eaeaf3; margin-top:10px; }
+    button { background:#8b5cf6; color:#fff; padding:12px 18px; border:none; border-radius:10px; margin-top:14px; cursor:pointer; }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Order: Pro Launch Package (£349/month)</h1>
-    <p>Please complete this quick brief:</p>
-    <form name="order-pro" method="POST" data-netlify="true">
+    <p>Please complete this brief:</p>
+    <form name="order-pro" method="POST" data-netlify="true" action="/thank-you.html">
       <input type="hidden" name="form-name" value="order-pro">
       <input type="hidden" name="package" value="Pro Launch Package (£349/month)">
       <input name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="goal" placeholder="What’s the goal?" required></textarea>
+      <textarea name="goal" placeholder="Project goal" required></textarea>
       <textarea name="message" placeholder="Main message"></textarea>
       <input name="url" placeholder="Booking link (URL)">
       <input name="logo" placeholder="Add logo?">
-      <input type="hidden" name="redirect" value="/thank-you.html">
       <textarea name="style" placeholder="Preferred style"></textarea>
       <button type="submit">Send Order</button>
     </form>
