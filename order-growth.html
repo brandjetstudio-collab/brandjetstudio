@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Growth Package</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body{margin:0;font-family:'Inter',sans-serif;background:#0b0d17;color:#eaeaf3;}
+    .container{max-width:700px;margin:50px auto;background:#151827;padding:40px;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.5);}
+    h1{color:#8b5cf6;}
+    input,textarea{width:100%;padding:12px;margin-top:10px;border-radius:10px;border:1px solid #333;background:#0f1325;color:#eaeaf3;}
+    button{background:#8b5cf6;color:#fff;padding:12px 18px;border:none;border-radius:10px;margin-top:14px;cursor:pointer;}
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Order: Growth (£199/mo)</h1>
+  <form name="order-growth" method="POST" data-netlify="true" action="/thank-you.html">
+    <input type="hidden" name="form-name" value="order-growth">
+    <input type="hidden" name="package" value="Growth £199/mo">
+    <input name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="goal" placeholder="Project goal" required></textarea>
+    <textarea name="message" placeholder="Main message"></textarea>
+    <button type="submit">Send Order</button>
+  </form>
+</div>
+</body>
+</html>
